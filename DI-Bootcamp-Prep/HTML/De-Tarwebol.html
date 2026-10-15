@@ -199,25 +199,36 @@
                     </p>
                 </div>
                 <div class="col s12 m6">
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title">Send a Message</span>
-                            <div class="input-field">
-                                <input id="name" type="text">
-                                <label for="name">Your Name</label>
-                            </div>
-                            <div class="input-field">
-                                <input id="email" type="email">
-                                <label for="email">Your Email</label>
-                            </div>
-                            <div class="input-field">
-                                <textarea id="message" class="materialize-textarea"></textarea>
-                                <label for="message">Your Message</label>
-                            </div>
-                            <button class="btn brown darken-2" type="submit">Submit</button>
-                        </div>
-                    </div>
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">Send a Message</span>
+
+            <form id="contact-form">
+
+                <div class="input-field">
+                    <input id="name" name="name" type="text" required>
+                    <label for="name">Your Name</label>
                 </div>
+
+                <div class="input-field">
+                    <input id="email" name="email" type="email" required>
+                    <label for="email">Your Email</label>
+                </div>
+
+                <div class="input-field">
+                    <textarea id="message" name="message"
+                        class="materialize-textarea" required></textarea>
+                    <label for="message">Your Message</label>
+                </div>
+
+                <button class="btn brown darken-2" type="submit">
+                    Submit
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
             </div>
         </div>
     </section>
@@ -234,6 +245,38 @@
             const sidenavs = document.querySelectorAll('.sidenav');
             M.Sidenav.init(sidenavs);
         });
+        document.addEventListener('DOMContentLoaded', function () {
+
+    // Initialize the Materialize mobile navigation
+    const sidenavs = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(sidenavs);
+
+    // Handle contact form submission
+    const form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        const subject = `Website message from ${name}`;
+
+        const body =
+            `Name: ${name}\n` +
+            `Email: ${email}\n\n` +
+            `Message:\n${message}`;
+
+        /*const mailtoLink =
+            `mailto:hello@detarwebol.nl` +
+            `?subject=${encodeURIComponent(subject)}` +
+            `&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoLink;*/
+    });
+
+});
     </script>
 </body>
 </html>
