@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Challenge || Materialize CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .brand-logo,
+        h2,
+        h4,
+        h5 {
+            font-weight: 700;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .service-card {
+            height: 100%;
+        }
+
+        .contact-info i {
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        #services .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    #services .col {
+        display: flex;
+    }
+
+    .service-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .service-card .card-content {
+        flex: 1;
+}
+
+        footer {
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="brown darken-2">
+        <div class="nav-wrapper container">
+            <a href="#home" class="brand-logo">De Tarwebol</a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m10 l8">
+                    <h2>Fresh Bread, Warm Welcome</h2>
+                    <p class="flow-text">
+                        Discover the cozy atmosphere, handcrafted pastries, and artisan breads
+                        that make De Tarwebol a beloved bakery in the heart of Utrecht.
+                    </p>
+                    <a href="#services" class="btn-large amber darken-2 brown-text text-darken-4">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row valign-wrapper">
+                <div class="col s12 m6">
+                    <img src="https://images.pexels.com/photos/8027652/pexels-photo-8027652.jpeg"
+                        alt="Bakery interior" class="responsive-img z-depth-2">
+                </div>
+                <div class="col s12 m6">
+                    <h4>About Us</h4>
+                    <p>
+                        De Tarwebol is a neighborhood bakery dedicated to fresh baking, friendly service,
+                        and a classic bakery experience. Located in the center of Utrecht, we aim to bring
+                        comfort and quality to every loaf, pastry, and sweet treat.
+                    </p>
+                    <p>
+                        We specialize in daily fresh breads, cakes, croissants, and coffee to enjoy in a
+                        relaxed and welcoming setting.
+                    </p>
+                    <p>
+                        All items are baked as traditional, kosher, and biological/reform breads (such as sourdough and raisin-nut loaves) under strict rabbinical control (O.R.C. / Onder Rabbinale Controle).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding grey lighten-4">
+        <div class="container">
+            <h4 class="center-align">Services</h4>
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="card service-card">
+                        <div class="card-content center-align">
+                            <i class="material-icons large brown-text">bakery_dining</i>
+                            <span class="card-title">Fresh Bread</span>
+                            <p>Everyday baked breads made with care and quality ingredients.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card service-card">
+                        <div class="card-content center-align">
+                            <i class="material-icons large brown-text">local_cafe</i>
+                            <span class="card-title">Coffee & Pastries</span>
+                            <p>Enjoy a warm drink and a sweet pastry in a cozy bakery atmosphere.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card service-card">
+                        <div class="card-content center-align">
+                            <i class="material-icons large brown-text">celebration</i>
+                            <span class="card-title">Custom Orders</span>
+                            <p>Ask about cakes and special bakery orders for birthdays and celebrations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h4>Contact</h4>
+                    <p class="contact-info">
+                        <i class="material-icons brown-text">location_on</i>
+                        Zadelstraat 19, Utrecht, Netherlands
+                    </p>
+                    <p class="contact-info">
+                        <i class="material-icons brown-text">access_time</i>
+                        Open daily: 08:00 - 18:00
+                    </p>
+                    <p class="contact-info">
+                        <i class="material-icons brown-text">phone</i>
+                        +31 30 123 4567
+                    </p>
+                    <p class="contact-info">
+                        <i class="material-icons brown-text">email</i>
+                        hello@detarwebol.nl
+                    </p>
+                </div>
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Send a Message</span>
+                            <div class="input-field">
+                                <input id="name" type="text">
+                                <label for="name">Your Name</label>
+                            </div>
+                            <div class="input-field">
+                                <input id="email" type="email">
+                                <label for="email">Your Email</label>
+                            </div>
+                            <div class="input-field">
+                                <textarea id="message" class="materialize-textarea"></textarea>
+                                <label for="message">Your Message</label>
+                            </div>
+                            <button class="btn brown darken-2" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="brown darken-2 white-text center-align">
+        <div class="container">
+            <p>© 2026 De Tarwebol Bakery. All rights reserved. <br>This web page is dedicated to the owner of De Tarwebol, Eli van Leeuwen. We love him and miss him every day.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidenavs = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(sidenavs);
+        });
+    </script>
+</body>
+</html>
