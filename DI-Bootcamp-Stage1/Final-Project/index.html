@@ -1,27 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My first website!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A tribute to Stanley Kubrick, the visionary filmmaker behind 2001: A Space Odyssey, The Shining, and other cinema classics.">
+    <title>Stanley Kubrick | A Tribute</title>
+
+    <!-- Different typography from the reference: Lora for body text and Montserrat for headings. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button class="btn btn-primary">Default</button>
-  <header>
-    <nav>
-      <ul>
-        <li>Home</li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section>
-    <h2>Home</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </section>
+    <header class="site-header">
+        <a class="wordmark" href="#top" aria-label="Stanley Kubrick tribute home">SK<span>.</span></a>
+        <nav aria-label="Main navigation">
+            <a href="#biography">Biography</a>
+            <a href="#filmography">Filmography</a>
+            <a href="#awards">Awards</a>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="hero" aria-labelledby="page-title">
+            <p class="eyebrow">1928 — 1999 · Filmmaker · Photographer · Visionary</p>
+            <h1 id="page-title">Stanley <span>Kubrick</span></h1>
+            <p class="hero-subtitle">A singular vision that changed the language of cinema.</p>
+            <a class="scroll-link" href="#biography">Explore his legacy <span aria-hidden="true">↓</span></a>
+        </section>
+
+        <section class="portrait-section" aria-label="Portrait of Stanley Kubrick">
+            <figure class="portrait-frame">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Stanley_Kubrick_%281944%E2%80%9345_senior_portrait%29.jpg"
+                    alt="Black-and-white school portrait of Stanley Kubrick as a teenager, around 1944–1945"
+                    loading="lazy">
+                <figcaption>Stanley Kubrick as a teenager, during the 1944–45 school year.</figcaption>
+            </figure>
+            <div class="portrait-note">
+                <span class="note-line"></span>
+                <p>Precision in every frame.<br>Possibility in every story.</p>
+            </div>
+        </section>
+
+        <section id="biography" class="content-section biography-section">
+            <div class="section-heading">
+                <p class="eyebrow">The man behind the camera</p>
+                <h2>Biography</h2>
+            </div>
+            <div class="biography-copy">
+                <p class="lead">Stanley Kubrick (July 26, 1928 – March 7, 1999) was an American film director, screenwriter, producer, and photographer whose exacting craft and fearless imagination left an enduring mark on world cinema.</p>
+                <p>Born in New York City and raised in the Bronx, Kubrick developed an early passion for photography. At just 17, he began working as a staff photographer for <em>Look</em> magazine. The experience sharpened his eye for composition, atmosphere, and the telling detail—qualities that would become hallmarks of his films.</p>
+                <p>He moved into filmmaking in the early 1950s, making documentary shorts before directing his first feature, <em>Fear and Desire</em> (1953). Across a career spanning nearly five decades, he moved confidently between war films, satire, science fiction, historical drama, horror, and psychological mystery.</p>
+                <p>Known for meticulous research, striking visual design, and an uncompromising approach to production, Kubrick often worked across directing, writing, editing, and producing. He settled in England in the 1960s and continued making films there. His final feature, <em>Eyes Wide Shut</em>, was released in 1999, after his death.</p>
+            </div>
+            <div class="bio-facts" aria-label="Quick facts">
+                <div class="fact"><span class="fact-number">1928</span><span class="fact-label">Born in New York City</span></div>
+                <div class="fact"><span class="fact-number">13</span><span class="fact-label">Feature films directed</span></div>
+                <div class="fact"><span class="fact-number">1999</span><span class="fact-label">Final film released</span></div>
+            </div>
+        </section>
+
+        <section id="filmography" class="content-section filmography-section">
+            <div class="section-heading">
+                <p class="eyebrow">Thirteen feature films</p>
+                <h2>Filmography</h2>
+                <p class="section-intro">A chronological look at Kubrick's feature-length work as a director.</p>
+            </div>
+            <ol class="film-list">
+                <li><span class="film-year">1953</span><span class="film-title"><em>Fear and Desire</em></span></li>
+                <li><span class="film-year">1955</span><span class="film-title"><em>Killer's Kiss</em></span></li>
+                <li><span class="film-year">1956</span><span class="film-title"><em>The Killing</em></span></li>
+                <li><span class="film-year">1957</span><span class="film-title"><em>Paths of Glory</em></span></li>
+                <li><span class="film-year">1960</span><span class="film-title"><em>Spartacus</em></span></li>
+                <li><span class="film-year">1962</span><span class="film-title"><em>Lolita</em></span></li>
+                <li><span class="film-year">1964</span><span class="film-title"><em>Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb</em></span></li>
+                <li><span class="film-year">1968</span><span class="film-title"><em>2001: A Space Odyssey</em></span></li>
+                <li><span class="film-year">1971</span><span class="film-title"><em>A Clockwork Orange</em></span></li>
+                <li><span class="film-year">1975</span><span class="film-title"><em>Barry Lyndon</em></span></li>
+                <li><span class="film-year">1980</span><span class="film-title"><em>The Shining</em></span></li>
+                <li><span class="film-year">1987</span><span class="film-title"><em>Full Metal Jacket</em></span></li>
+                <li><span class="film-year">1999</span><span class="film-title"><em>Eyes Wide Shut</em></span></li>
+            </ol>
+        </section>
+
+        <section id="awards" class="content-section awards-section">
+            <div class="section-heading">
+                <p class="eyebrow">Recognition and influence</p>
+                <h2>Awards</h2>
+            </div>
+            <div class="award-grid">
+                <article class="award-card">
+                    <span class="award-year">1969</span>
+                    <h3>Academy Award</h3>
+                    <p class="award-category">Special Visual Effects</p>
+                    <p>Kubrick won an Oscar for his groundbreaking visual-effects work on <em>2001: A Space Odyssey</em>.</p>
+                </article>
+                <article class="award-card">
+                    <span class="award-year">Posthumous honour</span>
+                    <h3>BAFTA Fellowship</h3>
+                    <p class="award-category">Outstanding contribution to film</p>
+                    <p>BAFTA awarded Kubrick its Fellowship in recognition of his exceptional contribution to cinema.</p>
+                </article>
+            </div>
+            <p class="awards-note">His films also earned major nominations and continuing critical recognition for directing, writing, cinematography, and production design.</p>
+        </section>
+
+        <section class="closing-note" aria-label="Closing tribute">
+            <p>His films continue to challenge, unsettle, and inspire audiences—one unforgettable frame at a time.</p>
+        </section>
+    </main>
 </body>
 </html>
+\
