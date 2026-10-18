@@ -1,15 +1,15 @@
 "Exercize 1 - Hello World"
-print(f"Hello world \n" * 5)
+print(("Hello world \n") * 4)
 
 "Exercize 2 - Some Math"
-print((99^3)*8)
+print((99**3)*8)
 
 "Exercize 3 - What is the output?"
-# >>> 5 < 3 - False
-# >>> 3 == 3 - True
-# >>> 3 == "3" - False
-# >>> "3" > 3 - False
-# >>> "Hello" == "hello" - False
+# print(5 < 3) #False
+# print(3 == 3) #True
+# print(3 == "3") #False
+# print("3" > 3) #TypeError
+# print("Hello" == "hello") #False
 
 "Exercize 4 - Your computer brand"
 computer_brand = "HP"
@@ -19,15 +19,16 @@ print(f"I have a {computer_brand} computer.")
 name = "Barry"
 age = 54
 shoe_size = 43
-info = "My name is " + name + " and I am " + str(age) + " years old, and my shoe size is " + str(shoe_size)
+info = f"My name is {name} and I am {age} years old, and my shoe size is {shoe_size}"
 print(info)
 
 "Exercize 6 - A & B"
-a = 10, b = 20
+a = 10 
+b = 20
 if a > b:
     print("Hello World")
 
-"Exercfize 7 - Odd or Even"
+"Exercize 7 - Odd or Even"
 my_num = int(input("Please enter a number: "))
 if my_num % 2 == 0:
     print("Your number is even.")
