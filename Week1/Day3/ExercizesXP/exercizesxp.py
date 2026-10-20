@@ -6,7 +6,7 @@ def exercize1():
     values = [10, 20, 30]
 
     first_dict = dict(zip(keys, values))
-    return(first_dict)
+    print(first_dict)
 
 def exercize2():
     # Write a program that calculates the total cost of movie tickets for a family based on their ages.
@@ -19,47 +19,52 @@ def exercize2():
 
     total_price = 0
 
-    for value in family.values():
-        if value < 3:
-            total_price += 0
-            print(f"The price for {family.key} is $0.")
-        elif value <=12:
-            total_price += 10
-            print(f"The price for {family.key} is $10.")
+    for name, age in family.items():
+        if age < 3:
+            price = 0
+            print(f"The price for {name} is ${price}.")
+        elif age <= 12:
+            price = 10
+            print(f"The price for {name} is ${price}.")
         else:
-            total_price += 15
-            print(f"The price for {family.key} is $15.")
+            price = 15
+            print(f"The price for {name} is ${price}.")
 
-    print(f"Your total ticket price is ${total_price}")
+        total_price += price
+
+    print(f"Your total ticket price is ${total_price}.")
 
 def exercize2bonus():
     # Allow the user to input family members’ names and ages, then calculate the total ticket cost.
 
-    movie_goers_age = 0
-    movie_goers_name = ""
-    total_price = 0
     movie_goers_dict = {}
+    total_price = 0
 
     while True:
         movie_goers_name = input("Please enter the name of the movie goer: ")
-        movie_goers_age = int(input("Please enter the age of each person in a family who wants to buy a movie ticket. Enter '0' to finish: "))
+        movie_goers_age = int(input(
+            "Please enter the age the person (enter 0 to finish): "
+        ))
+
         if movie_goers_age == 0:
-            break 
+            break
+
+        movie_goers_dict[movie_goers_name] = movie_goers_age
 
         if movie_goers_age < 3:
-            movie_goers_dict.update({movie_goers_name: movie_goers_age})
-            total_price += 0
-            print(f"The price for {movie_goers_dict.movie_goers_name} is $0.")
-        elif movie_goers_age <=12:
-            total_price += 10
-            movie_goers_dict.update({movie_goers_name: movie_goers_age})
-            print(f"The price for {movie_goers_dict.movie_goers_name} is $10.")
+            price = 0
+            print(f"The price for {movie_goers_name} is ${price}.")
+        elif movie_goers_age <= 12:
+            price = 10
+            print(f"The price for {movie_goers_name} is ${price}.")
         else:
-            total_price += 15
-            movie_goers_dict.update({movie_goers_name: movie_goers_age})
-            print(f"The price for {movie_goers_dict.movie_goers_name} is $15.")
+            price = 15
+            print(f"The price for {movie_goers_name} is ${price}.")
 
-    print(f"Your total ticket price is ${total_price}")
+        total_price += price
+
+    print(f"\nYour total ticket price is ${total_price}")
+    print(movie_goers_dict)
 
 def exercize3():
     # Create and manipulate a dictionary that contains information about the Zara brand.
