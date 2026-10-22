@@ -76,3 +76,5 @@ longest_word("Margaret's toy is a pretty doll.") should return "Margaret's".
 longest_word("A thing of beauty is a joy forever.") should return "forever.".
 longest_word("Forgetfulness is by all means powerless!") should return "Forgetfulness".
 """
+
+print(1)
