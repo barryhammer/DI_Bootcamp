@@ -37,12 +37,11 @@ def hangman():
                 print(f"Sorry, '{guess}' was incorrect.")
                 print(f"You have {counter - game_counter} guesses remaining.")
         else:                                   # Guessed letter is correct
-
             for i in range(len(word)):
                 if word[i] == guess:
-                    answer[i] = guess         
-                    print("Good job, you got a letter correct!")
-                    print("".join(answer))
+                    answer[i] = guess    
+            print("Good job, you got a letter correct!")     
+            print("".join(answer))
             
             if answer == correct_letters:
                 print(f"Congratulations, you guessed the word '{word}'!")
