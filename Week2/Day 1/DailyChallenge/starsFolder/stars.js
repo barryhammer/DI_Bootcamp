@@ -6,13 +6,12 @@ for (let i = 1; i <= starLength; i++) {
                                     I got this on my own. */
 }
 
-for (let i = 1; i <= starLength; i++) {
-    let line = "";
+// I came up with this solution while walking to the train station, so this counts.
+let j = 0
 
-    // This is the part I couldn't get on my own.
-    for (let j = 1; j <= i; j++) {
-        line += star;
-    }
-
-    console.log(line);
+while (j < 1) {
+  for (let i = 1; i <= starLength; i++) {
+      console.log(star.repeat(i)) 
+  }
+  j += 1
 }
