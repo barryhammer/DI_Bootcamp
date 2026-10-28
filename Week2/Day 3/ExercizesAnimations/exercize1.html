@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+        p {
+          background: yellow;
+          color: red;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <button id="clear">Clear Interval</button>
+
+        <script>
+            // Part 1
+            setTimeout(() => {
+                    alert("Hello World");
+            }, 2000); 
+
+            // Part 2
+            setTimeout(() => {
+                const myDiv = document.getElementById("container");
+                const newPara = document.createElement("p");
+                newPara.textContent = "Hello World.";
+                myDiv.append(newPara);
+            }, 2000); 
+
+            // Part 3
+            // Stop repeat if user clicks button
+            stopBtn.addEventListener('click', () => {
+                clearInterval(intervalId);
+            });
+
+            // Stop repeat if there are 5 paragraphs on the page
+            if(totalPs === 5){
+                clearInterval(intervalId);
+            }
+
+            const intervalId = setInterval(() => {
+                const stopBtn = document.getElementById('clear');
+                const myDiv = document.getElementById("container");
+                const newPara = document.createElement("p");
+                const totalPs = document.querySelectorAll('p').length;
+
+                // Append new p element with "Hello World"
+                newPara.textContent = "Hello World.";
+                myDiv.append(newPara);
+            }, 2000);
+        </script>
+    </body>
+    </html>
