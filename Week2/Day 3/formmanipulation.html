@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<form id="form1" onsubmit="getValues()"> 
+    <label>First name: </label>
+    <input type="text" name="fname" value="David"><br> 
+
+    <label>Last name: </label>
+    <input type="text" name="lname" value="BenGurion"><br> 
+
+    <input type="submit" id="mySubmitButton" value="Submit"> 
+</form> 
+
+<script>
+    /*
+function getValues(event) {
+    event.preventDefault(); // Used to prevent refresh of page
+
+    const myInputs = document.querySelectorAll("input[type='text']");
+
+    for (item of myInputs) {
+        console.log(item.value);
+    }
+}
+*/
+    const myInputs = document.querySelectorAll("input[type='text']");
+
+    for (item of myInputs) {
+        console.log(item.value);
+    }
+</script>
+
+</body>
+</html>
