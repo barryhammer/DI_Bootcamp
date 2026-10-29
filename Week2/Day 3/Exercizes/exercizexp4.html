@@ -1,0 +1,63 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8"> 
+    <title>Volume of a Sphere</title> 
+    <style>  
+        body {
+            padding-top:30px;
+        } 
+
+        label,input {
+            display:block;
+        }  
+    </style> 
+</head> 
+
+<body> 
+    <p>Input radius value and get the volume of a sphere.</p> 
+
+    <form id="MyForm"> 
+        <label for="radius">Radius</label>
+        <input type="text" name="radius" id="radius" required> 
+
+        <label for="volume">Volume</label>
+        <input type="text" name="volume" id="volume"> 
+
+        <input type="submit" value="Calculate" id="submit">    
+    </form> 
+
+<script>
+
+function calculateSphereVolume(radius) {
+    return (4 / 3) * Math.PI * Math.pow(radius, 3);
+}
+
+const myForm = document.getElementById("MyForm");
+
+myForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const radiusInput = document.getElementById("radius").value;
+    const radius = parseFloat(radiusInput);
+
+    if (!Number.isFinite(radius)) {
+        alert("Please enter a valid number for the radius.");
+        return;
+    }
+
+    if (radius < 0) {
+        alert("Radius cannot be negative.");
+        return;
+    }
+
+    const volume = calculateSphereVolume(radius);
+
+    // Update final number to page.
+    document.getElementById("volume").value = volume;
+});
+
+</script>
+
+</body> 
+</html>
