@@ -1,0 +1,143 @@
+#color-1 {
+    background-color: #000000; /* Black */
+}
+
+#color-2 {
+    background-color: #FFFFFF; /* White */
+}
+
+#color-3 {
+    background-color: #FF0000; /* Red */
+}
+
+#color-4 {
+    background-color: #00FF00; /* Lime */
+}
+
+#color-5 {
+    background-color: #0000FF; /* Blue */
+}
+
+#color-6 {
+    background-color: #FFFF00; /* Yellow */
+}
+
+#color-7 {
+    background-color: #FF00FF; /* Magenta */
+}
+
+#color-8 {
+    background-color: #00FFFF; /* Cyan */
+}
+
+#color-9 {
+    background-color: #FFA500; /* Orange */
+}
+
+#color-10 {
+    background-color: #800080; /* Purple */
+}
+
+#color-11 {
+    background-color: #FFC0CB; /* Pink */
+}
+
+#color-12 {
+    background-color: #808080; /* Gray */
+}
+
+#color-13 {
+    background-color: #A52A2A; /* Brown */
+}
+
+#color-14 {
+    background-color: #008000; /* Green */
+}
+
+#color-15 {
+    background-color: #FFD700; /* Gold */
+}
+
+#color-16 {
+    background-color: #C0C0C0; /* Silver */
+}
+
+#color-17 {
+    background-color: #4B0082; /* Indigo */
+}
+
+#color-18 {
+    background-color: #EE82EE; /* Violet */
+}
+
+#color-19 {
+    background-color: #40E0D0; /* Turquoise */
+}
+
+#color-20 {
+    background-color: #8B4513; /* Saddle Brown */
+}
+
+#color-21 {
+    background-color: #7FFF00; /* Chartreuse */
+}
+
+#pallete {
+    display: flex;       /* Forces children to sit horizontally next to each other */
+    gap: 15px;           /* Adds a clean space between the child divs */
+}
+
+#canvas {
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  align-content: center;
+  width: 566px;
+  height: 566px;
+  margin-bottom: 2vmin;
+}
+/*It is the tile which will append to the grid*/
+.tile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  margin: 0px;
+  font-size: 5vmin;
+}
+/* Thick right border for segregation*/
+.rightborder {
+  border-right: 5px solid black;
+}
+.bottomborder {
+  border-bottom: 5px solid black;
+}
+#clearButton {
+  height: 5vmin;
+  width: 12vmin;
+  background: none;
+  border-radius: 1vmin;
+}
+
+[id^="color"] {
+    background-color: #008000; /* Green */
+    height: 5vmin;
+    width: 12vmin;
+    background: none;
+    border-radius: 1vmin;
+    flex: 1;             /* Makes all boxes share the available width equally (optional) */
+    padding: 20px;
+}
+#clearButton:hover {
+  background-color: cyan;
+  box-shadow: 0 0 12px cyan;
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
