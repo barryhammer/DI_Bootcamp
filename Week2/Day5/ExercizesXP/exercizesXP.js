@@ -140,17 +140,14 @@ function makeJuice(size = "small") {
     }
 
     function displayJuice() {
-        console.log(
-            `The client wants a ${size} juice, containing ${ingredients[0]}, ${ingredients[1]}, ${ingredients[2], ingredients[3], ingredients[4], ingredients[5]}`
-        );
+        const newJuice = document.createElement('div');
+        newJuice.textcontent = (`The client wants a ${size} juice, containing ${ingredients[0]}, ${ingredients[1]}, ${ingredients[2]}, ${ingredients[3]}, ${ingredients[4]}, ${ingredients[5]}}`);
     }
 
     addIngredients("strawberries", "pineapple", "milk");
     addIngredients("banana", "orange", "yogurt");
 
     displayJuice();
-    const newJuice = document.createElement('div');
-    newJuice..textcontent = (`The client wants a ${size} juice, containing ${firstIngredient}, ${secondIngredient}, ${thirdIngredient}.`)
 }
 
 makeJuice();
