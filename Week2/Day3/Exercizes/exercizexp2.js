@@ -1,29 +1,51 @@
-/* 
 
+// Exercise 2: HTML Forms
 
+// Retrieve the form and display it in the console
+const form = document.querySelector("form");
+console.log(form);
 
-When the user submits the form (ie. submit event listener)
-use event.preventDefault(), why ?
-get the values of the input tags,
-make sure that they are not empty,
-create an li per input value,
-then append them to a the <ul class="usersAnswer"></ul>, below the form.
-*/
+// Retrieve the inputs by their IDs
+const fname = document.getElementById("fname");
+const lname = document.getElementById("lname");
 
-// Retrieve the form and console.log it.
-const form = document.querySelector('form');
-console.log(form); // Should I be using formData, even though we didn't learn it yet?
+// Retrieve the inputs by their name attributes
+const firstByName = document.querySelector('[name="firstname"]');
+const lastByName = document.querySelector('[name="lastname"]');
 
-// Retrieve the inputs by their id and console.log them.
-const fname = document.getElementById('fname');
-const lname = document.getElementById('lname');
+console.log(firstByName);
+console.log(lastByName);
 
-console.log("First name:", fname.value);
-console.log("Last name:", lname.value);
+// Retrieve the unordered list
+const usersAnswer = document.querySelector(".usersAnswer");
 
-// Retrieve the inputs by their name attribute and console.log them.
-const inputs = document.querySelectorAll('input');
+// Add a submit event listener to the form
+form.addEventListener("submit", function(event) {
+    // Prevent the page from reloading
+    event.preventDefault();
 
-inputs.forEach(input => {
-    console.log(input);
+    // Retrieve the input values
+    const first = fname.value.trim();
+    const last = lname.value.trim();
+
+    // Check that neither input is empty
+    if (first === "" || last === "") {
+        alert("Please enter both first and last names.");
+        return;
+    }
+
+    // Clear previous results
+    usersAnswer.replaceChildren();
+
+    // Create an li for the first name
+    const firstLi = document.createElement("li");
+    firstLi.textContent = first;
+
+    // Create an li for the last name
+    const lastLi = document.createElement("li");
+    lastLi.textContent = last;
+
+    // Append both li elements to the ul
+    usersAnswer.appendChild(firstLi);
+    usersAnswer.appendChild(lastLi);
 });
