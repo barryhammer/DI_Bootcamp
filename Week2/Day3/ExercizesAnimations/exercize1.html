@@ -1,52 +1,64 @@
+
 <!DOCTYPE html>
-    <html>
-    <head>
-        <style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1 - Timers</title>
+    <style>
         p {
-          background: yellow;
-          color: red;
+            background: yellow;
+            color: red;
         }
-        </style>
-    </head>
-    <body>
-        <div id="container"></div>
-        <button id="clear">Clear Interval</button>
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="clear">Clear Interval</button>
 
-        <script>
-            // Part 1
-            setTimeout(() => {
-                    alert("Hello World");
-            }, 2000); 
+    <script>
+        const myDiv = document.getElementById("container");
+        const stopBtn = document.getElementById("clear");
 
-            // Part 2
-            setTimeout(() => {
-                const myDiv = document.getElementById("container");
-                const newPara = document.createElement("p");
-                newPara.textContent = "Hello World.";
-                myDiv.append(newPara);
-            }, 2000); 
+        // Part 1
+        setTimeout(() => {
+            alert("Hello World");
+        }, 2000);
 
-            // Part 3
-            // Stop repeat if user clicks button
-            stopBtn.addEventListener('click', () => {
+        // Part 2
+        setTimeout(() => {
+            const newPara = document.createElement("p");
+            newPara.textContent = "Hello World";
+            myDiv.appendChild(newPara);
+        }, 2000);
+
+        // Part 3
+        // Repeat every 2 seconds, up to 5 paragraphs
+        const intervalId = setInterval(() => {
+            const totalPs = myDiv.querySelectorAll("p").length;
+
+            // Stop if there are already 5 paragraphs
+            if (totalPs >= 5) {
                 clearInterval(intervalId);
-            });
-
-            // Stop repeat if there are 5 paragraphs on the page
-            if(totalPs === 5){
-                clearInterval(intervalId);
+                return;
             }
 
-            const intervalId = setInterval(() => {
-                const stopBtn = document.getElementById('clear');
-                const myDiv = document.getElementById("container");
-                const newPara = document.createElement("p");
-                const totalPs = document.querySelectorAll('p').length;
+            // Append new p element with "Hello World"
+            const newPara = document.createElement("p");
+            newPara.textContent = "Hello World";
+            myDiv.appendChild(newPara);
 
-                // Append new p element with "Hello World"
-                newPara.textContent = "Hello World.";
-                myDiv.append(newPara);
-            }, 2000);
-        </script>
-    </body>
-    </html>
+            // Check the number of paragraphs after appending
+            const updatedTotalPs = myDiv.querySelectorAll("p").length;
+
+            if (updatedTotalPs >= 5) {
+                clearInterval(intervalId);
+            }
+        }, 2000);
+
+        // Stop repeat if user clicks button
+        stopBtn.addEventListener("click", () => {
+            clearInterval(intervalId);
+        });
+    </script>
+</body>
+</html>
