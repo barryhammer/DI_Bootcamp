@@ -45,3 +45,9 @@ const curriedFunction2 = curry(addFunction2);
 const curriedFunction4 = curry(addFunction4);
 
 console.log(curriedFunction4(1, 2, 3, 4));
+
+const myNumbers = [1,2,3,4];
+const addNumbers = (nums) => {
+  let result = 0;
+  
+}

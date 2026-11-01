@@ -120,18 +120,37 @@ kgToGrams(5);
 
 // Exercise 8 : Juice Bar
 // Part 1:
-/*
-const myTestFunction = (a,b,c,d) => a + b + c + d;
-const myTestFunction2 = a => b => c => d => a + b + c + d;
-
-function myAddFunction(a,b) {
-  return a + b;
-}
-
-function myAddFunction2(a) {
-  function myInnerFunction(b) {
-    return a + b;
+function makeJuice (size = "small"){
+    const ingredients = [];
+  function addIngredients(firstIngredient = "strawberries", secondIngredient = "pineapple", thirdIngredient = "milk") {
+    const juiceDiv = document.createElement('div');
+    juiceDiv.textcontent = (`The client wants a ${size} juice, containing ${firstIngredient}, ${secondIngredient}, ${thirdIngredient}.`)
+    // console.log(`The client wants a ${size} juice, containing ${firstIngredient}, ${secondIngredient}, ${thirdIngredient}.`)
   }
-  return myInnerFunction
+  addIngredients();
 }
-*/
+makeJuice();
+
+// Part 2:
+function makeJuice(size = "small") {
+    const ingredients = [];
+
+    function addIngredients(firstIngredient, secondIngredient, thirdIngredient) {
+        ingredients.push(firstIngredient, secondIngredient, thirdIngredient);
+    }
+
+    function displayJuice() {
+        console.log(
+            `The client wants a ${size} juice, containing ${ingredients[0]}, ${ingredients[1]}, ${ingredients[2], ingredients[3], ingredients[4], ingredients[5]}`
+        );
+    }
+
+    addIngredients("strawberries", "pineapple", "milk");
+    addIngredients("banana", "orange", "yogurt");
+
+    displayJuice();
+    const newJuice = document.createElement('div');
+    newJuice..textcontent = (`The client wants a ${size} juice, containing ${firstIngredient}, ${secondIngredient}, ${thirdIngredient}.`)
+}
+
+makeJuice();
