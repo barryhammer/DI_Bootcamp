@@ -99,9 +99,12 @@ const isString = (val) => typeof val === 'string'; // Checks value 'val', return
 const add = (a, b) => a + b;
 
 // Exercise 5 : Kg and grams
-const kgToGrams = kg => let grams = .001 = kg * grams;
-// kgToGrams is a function expression, declaring a new function decleration kg;   
-kgToGrams(5);
+const kgToGrams = kg => {
+    let grams = kg * 1000;
+    return grams;
+};
+
+console.log(kgToGrams(5)); // 5000
 
 // Exercize 6: Fortune teller
 (function(numChildren, partnerName, geoLocation, jobTitle) {
@@ -110,7 +113,6 @@ kgToGrams(5);
 })(3, 'Alex', 'Paris', 'Software Engineer');
 
 // Exercise 7 : Welcome
-// NOTE: This currently does nothing, as there is no HTML file attached to this code.
 (function(newName) {
     const navbar = document.querySelector('.navbar');
     const newDiv = document.createElement('div');
@@ -141,7 +143,10 @@ function makeJuice(size = "small") {
 
     function displayJuice() {
         const newJuice = document.createElement('div');
-        newJuice.textcontent = (`The client wants a ${size} juice, containing ${ingredients[0]}, ${ingredients[1]}, ${ingredients[2]}, ${ingredients[3]}, ${ingredients[4]}, ${ingredients[5]}}`);
+
+        newJuice.textContent = `The client wants a ${size} juice, containing ${ingredients.join(", ")}.`;
+
+        document.body.appendChild(newJuice);
     }
 
     addIngredients("strawberries", "pineapple", "milk");
