@@ -1,64 +1,65 @@
-const colors = [
-    "#000000", // Black
-    "#FFFFFF", // White
-    "#FF0000", // Red
-    "#00FF00", // Lime
-    "#0000FF", // Blue
-    "#FFFF00", // Yellow
-    "#FF00FF", // Magenta
-    "#00FFFF", // Cyan
-    "#FFA500", // Orange
-    "#800080", // Purple
-    "#FFC0CB", // Pink
-    "#808080", // Gray
-    "#A52A2A", // Brown
-    "#008000", // Green
-    "#FFD700", // Gold
-    "#C0C0C0", // Silver
-    "#4B0082", // Indigo
-    "#EE82EE", // Violet
-    "#40E0D0", // Turquoise
-    "#8B4513", // Saddle Brown
-    "#7FFF00"  // Chartreuse
+// Color array including your original options and the two additions
+const systemColors = [
+  "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", 
+  "#00FFFF", "#FFA500", "#800080", "#FFC0CB", "#808080", 
+  "#A52A2A", "#008000", "#FFD700", "#C0C0C0", "#4B0082", 
+  "#EE82EE", "#40E0D0", "#8B4513", "#7FFF00", "#FF1493", 
+  "#00FA9A"
 ];
 
-function clear(){
-    const section = document.getElementsByClassName('grid');
-    section.replaceChildren(); // Clears out grid
-}
+let selectedColor = systemColors[0];
 
-// Select the grid container
-function id(id) {
-    return document.getElementById(id);
-}
+function generateGrid(containerId, columns, rows, colorsArray = null) {
+  const container = document.getElementById(containerId);
+  const totalCells = columns * rows;
 
-// Setting a 9*9 grid
-let count = 0;
-let idcount = 0;
+  for (let i = 0; i < totalCells; i++) {
+    const cell = document.createElement('div');
+    cell.classList.add('cell');
 
-window.onload = () => {
-    for (let i = 0; i < 81; i++) {
+    cell.addEventListener("mousedown", () => {
+    cell.style.backgroundColor = selectedColor;
+    });
 
-        // Create tile & gave it CSS of the
-        // tile and then append it
-        let tile = document.createElement("p");
-        tile.id = idcount;
-        idcount++;
-        tile.classList.add("tile");
-        tile.textContent = "";
-      
-        id("canvas").appendChild(tile);
-    }
-
-    // Grid will be displayed if setting
-    // the display to none
-    id("togglebtn").addEventListener("click", () => {
-        if (count % 2 == 0) {
-            id("canvas").style.display = "none";
-            count++;
-        } else {
-            id("canvas").style.display = "flex";
-            count++;
+    cell.addEventListener("mouseover", () => {
+        if (mouseDown) {
+            cell.style.backgroundColor = selectedColor;
         }
     });
-};
+
+    if (colorsArray && colorsArray.length > 0) {
+    const colorIndex = i % colorsArray.length;
+    cell.style.backgroundColor = colorsArray[colorIndex];
+
+    cell.addEventListener("click", () => {
+        selectedColor = colorsArray[colorIndex];
+    });
+}
+    container.appendChild(cell);
+  }
+}
+
+let mouseDown = false;
+
+document.addEventListener("mousedown", () => {
+    mouseDown = true;
+});
+
+document.addEventListener("mouseup", () => {
+    mouseDown = false;
+});
+
+// Generate both grids
+generateGrid('grid-3x7', 3, 7, systemColors);
+generateGrid('grid-9x9', 9, 9);
+
+// Clear button logic
+document.getElementById("clear-btn").addEventListener("click", () => {
+
+    const cells = document.querySelectorAll("#grid-9x9 .cell");
+
+    cells.forEach(cell => {
+        cell.style.backgroundColor = "white";
+    });
+
+});
