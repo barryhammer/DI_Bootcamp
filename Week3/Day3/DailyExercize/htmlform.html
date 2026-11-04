@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form id="myForm">
+        <label for="name"></label>
+        <input type="text" id="username" name="name" required>
+
+        <label for="lastName"></label>
+        <input type="text" id="username" name="lastName" required>
+    
+        <button type="submit">Submit</button>
+    </form>
+
+<!-- The <pre> tag preserves spaces and line breaks -->
+<pre id="jsonOutput"></pre>
+
+<script>
+    const form = document.getElementById('myForm');
+    const output = document.getElementById('jsonOutput');
+
+    form.addEventListener('submit', function(event) {
+    // 1. Stop the page from reloading/redirecting on submission
+    event.preventDefault();
+
+    // 2. Automatically grab all the data from the form fields
+    const formData = new FormData(form);
+
+    // 3. Convert the FormData entries into a standard key-value object
+    const dataObject = Object.fromEntries(formData.entries());
+
+    // 4. Convert the object to a formatted JSON string
+    const jsonString = JSON.stringify(dataObject);
+
+    // 5. Display the formatted string on the web page
+    output.textContent = jsonString;
+    });
+</script>
+
+</body>
+</html>
