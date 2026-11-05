@@ -128,7 +128,10 @@ searchBox.addEventListener("input", function() {  // Runs every time a user type
 
     // Checks each robot's name against the search text
     const filteredRobots = robots.filter(robot => { // Filters results in robots array.
-        return robot.name.toLowerCase().includes(searchText); // Uses lowercase to check name.
+        return (
+        robot.name.toLowerCase().includes(searchText) || // Checks name
+        robot.email.toLowerCase().includes(searchText)   // Checks email address
+        );
     });
 
     displayRobots(filteredRobots);
