@@ -1,5 +1,5 @@
-let string1 = prompt("Please enter your first string:");
-let string2 = prompt("Please enter your second string:");
+let string1 = prompt("Please enter your first string: ");
+let string2 = prompt("Please enter your second string: ");
 
 function anagram(string1, string2){
     let lower1 = string1.trim().replaceAll(" ", "").toLowerCase(); 
