@@ -1,5 +1,5 @@
-let string1 = "The Morse Code";
-let string2 = "Here come the dots";
+let string1 = prompt("Please enter your first string:");
+let string2 = prompt("Please enter your second string:");
 let lower1 = "";
 let lower2 = "";
 
