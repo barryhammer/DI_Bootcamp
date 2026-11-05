@@ -1,11 +1,16 @@
 let string1 = prompt("Please enter your first string:");
 let string2 = prompt("Please enter your second string:");
-let lower1 = "";
-let lower2 = "";
 
-lower1 = string1.replaceAll(" ", "").toLowerCase(); 
-lower1 = lower1.split("").sort().join("");
-lower2 = string2.replaceAll(" ", "").toLowerCase(); 
-lower2 = lower2.split("").sort().join("");
+function anagram(string1, string2){
+    let lower1 = string1.trim().replaceAll(" ", "").toLowerCase(); 
+    lower1 = lower1.split("").sort().join("");
+    let lower2 = string2.trim().replaceAll(" ", "").toLowerCase(); 
+    lower2 = lower2.split("").sort().join("");
+    if(lower1 == lower2){
+        return true;
+    } else {
+        return false;
+    }
+}
 
-(lower1 == lower2) ? console.log(`"${string1}" is an anagram of "${string2}"`) : console.log(`"${string1}" is not an anagram of "${string2}"`);
+console.log(anagram(string1, string2));
