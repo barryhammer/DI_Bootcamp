@@ -1,10 +1,13 @@
-function validateUnionType(value: any, allowedTypes: string[]): boolean {
+type AllowedValue = string | number | boolean;
+
+function validateUnionType(
+    value: any,
+    allowedTypes: string[]
+): boolean {
     return allowedTypes.includes(typeof value);
-    // .includes checks whether the type returned by typeof exists in the allowedTypes array.
 }
 
-// Define allowed types
-const allowedTypes: string[] = ["string", "number", "boolean"];
+const allowedTypes = ["string", "number", "boolean"];
 
 // Test different values
 console.log(validateUnionType("Barry", allowedTypes)); // true
