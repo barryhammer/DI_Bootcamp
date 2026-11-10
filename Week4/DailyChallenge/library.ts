@@ -3,6 +3,8 @@ interface Book {
     title: string;
     author: string;
     isbn: string;
+    publishedYear: number;
+    genre?: string;
 }
 
 // Parent class
@@ -44,19 +46,23 @@ const myLibrary = new DigitalLibrary("www.mylibrary.com");
 myLibrary.addBook({
     title: "1984",
     author: "George Orwell",
-    isbn: "9780451524935"
+    isbn: "9780451524935",
+    publishedYear: 1949,
+    genre: "dystopian fiction"
 });
 
 myLibrary.addBook({
     title: "The Hobbit",
     author: "J.R.R. Tolkien",
-    isbn: "9780547928227"
+    isbn: "9780547928227",
+    publishedYear: 1937
 });
 
 myLibrary.addBook({
     title: "Dune",
     author: "Frank Herbert",
-    isbn: "9780441172719"
+    isbn: "9780441172719",
+    publishedYear: 1965
 });
 
 // Print book details
