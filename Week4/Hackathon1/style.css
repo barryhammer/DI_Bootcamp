@@ -10,7 +10,7 @@ h1, h2 {
 }
 
 /* Container styling */
-    .input-group {
+    .film-search {
       display: flex;
       max-width: 400px;
       border: 2px solid #ccc;
@@ -20,12 +20,12 @@ h1, h2 {
     }
 
     /* Style container when inner input is focused */
-    .input-group:focus-within {
+    .film-search:focus-within {
       border-color: #007bff;
     }
 
     /* Input text box styling */
-    .input-group input[type="text"] {
+    .film-search input[type="text"] {
       flex: 1;
       padding: 10px 14px;
       border: none;
@@ -34,7 +34,7 @@ h1, h2 {
     }
 
     /* Action button styling */
-    .input-group button {
+    .film-search button {
       padding: 10px 20px;
       background-color: #007bff;
       color: white;
@@ -46,6 +46,6 @@ h1, h2 {
     }
 
     /* Hover state for button */
-    .input-group button:hover {
+    .film-search button:hover {
       background-color: #0056b3;
     }

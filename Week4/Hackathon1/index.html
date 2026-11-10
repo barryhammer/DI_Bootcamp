@@ -19,10 +19,14 @@
         <li>Thriller</li>
     </ul>
     <br>
-    <form class="input-group" onsubmit="handleSubmit(event)">
-        <input type="text" placeholder="Search for a film here." required />
-        <button type="submit">Submit</button>
+    <form class="film-search" id="filmSearchForm">
+        <input type="text" id="genreInput" placeholder="Enter a genre (e.g. Comedy)" required />
+        <button type="submit">Search</button>
     </form>
+
+    <br>
+    <br>
+    <pre id="jsonOutput"></pre>
 
     <script src="script.js"></script>
 </body>
