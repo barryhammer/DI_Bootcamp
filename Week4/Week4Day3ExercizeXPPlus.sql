@@ -43,3 +43,9 @@ WHERE (first_name LIKE '%a');
 
 SELECT (first_name, last_name) FROM students
 WHERE first_name LIKE '%a_'; -- This returns the second to last character
+
+SELECT (first_name, last_name) FROM students
+WHERE (student_id = 1 AND student_id = 3);
+
+SELECT * FROM students
+WHERE (birth_date >= '2000-01-01');
