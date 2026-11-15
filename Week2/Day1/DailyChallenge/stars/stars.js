@@ -11,5 +11,6 @@ for (let i = 1; i <= starLength; i++) {
 
         line += star;
     }
+
     console.log(line);
 }
