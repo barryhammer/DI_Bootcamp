@@ -1,116 +1,77 @@
 
 const tasks = [];
 
-// Get references to the HTML elements
-const taskForm = document.getElementById("taskForm");
-const taskInput = document.getElementById("myInput");
+const form = document.getElementById("taskForm");
+const input = document.getElementById("taskInput");
 const listTasks = document.querySelector(".listTasks");
-const errorMessage = document.getElementById("errorMessage");
 
-// Create a new task when submitting the form
-taskForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-    addTask();
-});
-
-// Function to add a new task
 function addTask() {
-    const inputValue = taskInput.value.trim();
+    const taskText = input.value.trim();
 
-    // Check if the input is empty
-    if (inputValue === "") {
-        errorMessage.textContent = "You must write something!";
+    if (taskText === "") {
+        input.style.border = "2px solid red";
         return;
     }
 
-    errorMessage.textContent = "";
+    input.style.border = "";
 
-    // Create a new task object
     const task = {
-        id: Date.now() + Math.random(),
-        text: inputValue,
+        text: taskText,
         done: false
     };
 
-    // Add the task to the tasks array
     tasks.push(task);
 
-    // Create a div for the new task
     const taskDiv = document.createElement("div");
-    taskDiv.className = "task";
 
-    // Create the delete button using Font Awesome
-    const deleteButton = document.createElement("button");
-    deleteButton.type = "button";
-    deleteButton.className = "close";
-    deleteButton.setAttribute("aria-label", "Delete task");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
 
-    const deleteIcon = document.createElement("i");
-    deleteIcon.className = "fa-solid fa-xmark";
-    deleteIcon.setAttribute("aria-hidden", "true");
-    deleteButton.appendChild(deleteIcon);
-
-    // Create the checkbox
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.className = "taskCheckbox";
 
-    // Create a span containing the task text
-    const taskText = document.createElement("span");
-    taskText.className = "taskText";
-    taskText.textContent = inputValue;
+    const label = document.createElement("span");
+    label.textContent = task.text;
 
-    // Event listener for completing a task
-    checkbox.addEventListener("change", function() {
-        doneTask(task.id, checkbox.checked, taskDiv);
+    deleteBtn.addEventListener("click", () => {
+        deleteTask(task, taskDiv);
     });
 
-    // Event listener for deleting a task
-    deleteButton.addEventListener("click", function() {
-        deleteTask(task.id, taskDiv);
+    checkbox.addEventListener("change", () => {
+        doneTask(task, checkbox, label);
     });
 
-    // Append elements to the task div
-    taskDiv.appendChild(deleteButton);
+    taskDiv.appendChild(deleteBtn);
     taskDiv.appendChild(checkbox);
-    taskDiv.appendChild(taskText);
+    taskDiv.appendChild(label);
 
-    // Append the task div to the DOM
     listTasks.appendChild(taskDiv);
 
-    // Clear the input field
-    taskInput.value = "";
-    taskInput.focus();
+    input.value = "";
 }
 
-// Function to mark a task as done or not done
-function doneTask(taskId, isChecked, taskDiv) {
-    // Find the task in the array
-    const task = tasks.find(item => item.id === taskId);
+function doneTask(task, checkbox, label) {
+    task.done = checkbox.checked;
 
-    if (task) {
-        // Update the task status
-        task.done = isChecked;
-
-        // Add or remove the checked CSS class
-        if (isChecked) {
-            taskDiv.classList.add("checked");
-        } else {
-            taskDiv.classList.remove("checked");
-        }
+    if (task.done) {
+        label.style.textDecoration = "line-through";
+    } else {
+        label.style.textDecoration = "none";
     }
 }
 
-// Function to delete a task
-function deleteTask(taskId, taskDiv) {
-    // Find the task index in the array
-    const index = tasks.findIndex(item => item.id === taskId);
+function deleteTask(task, taskDiv) {
+    const index = tasks.indexOf(task);
 
-    // Remove the task from the array
     if (index !== -1) {
         tasks.splice(index, 1);
     }
 
-    // Remove the task from the DOM
     taskDiv.remove();
 }
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    addTask();
+});
