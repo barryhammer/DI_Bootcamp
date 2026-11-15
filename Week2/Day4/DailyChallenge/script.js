@@ -1,4 +1,4 @@
-
+let nextTaskId = 0;
 const tasks = [];
 
 const form = document.getElementById("taskForm");
@@ -16,6 +16,7 @@ function addTask() {
     input.style.border = "";
 
     const task = {
+        task_id: nextTaskId++,
         text: taskText,
         done: false
     };
@@ -24,15 +25,21 @@ function addTask() {
 
     const taskDiv = document.createElement("div");
 
+    taskDiv.setAttribute("data-task-id", task.task_id);
+    taskDiv.classList.add("task");
+
     const deleteBtn = document.createElement("button");
     deleteBtn.type = "button";
     deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    deleteBtn.classList.add("close");
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.classList.add("taskCheckbox");
 
     const label = document.createElement("span");
     label.textContent = task.text;
+    label.classList.add("taskText");
 
     deleteBtn.addEventListener("click", () => {
         deleteTask(task, taskDiv);
@@ -51,13 +58,16 @@ function addTask() {
     input.value = "";
 }
 
+
 function doneTask(task, checkbox, label) {
     task.done = checkbox.checked;
 
     if (task.done) {
         label.style.textDecoration = "line-through";
+        label.style.color = "red";
     } else {
         label.style.textDecoration = "none";
+        label.style.color = "black";
     }
 }
 
