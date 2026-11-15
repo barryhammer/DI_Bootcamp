@@ -51,9 +51,20 @@ const marioGame = {
   },
 }
 
-// Convert to JSON
-const jsonString = JSON.stringify(user);
+// Convert the JavaScript object to JSON
+const jsonString = JSON.stringify(marioGame);
 console.log(jsonString);
+
+// Convert to formatted JSON
+const prettyJson = JSON.stringify(marioGame, null, 2);
+console.log(prettyJson);
+
+// Nested objects are preserved in JSON.
+// For example, characters.mario still contains
+// description, height, weight and speed.
+
+// Pause execution to inspect the values
+debugger;
 
 // Convert to Pretty Print JSON
 const prettyJson = JSON.stringify(user, null, 2);
