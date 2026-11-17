@@ -1,13 +1,10 @@
 // Exercise 1: Find the numbers divisible by 23
-function displayNumbersDivisible() {
-    let sum = 0
-    for (let i = 0; i < 500; i++) {
-        if (i % 23 === 0) {
+function displayNumbersDivisibleWithParameter(divisor = 23) {
+    for (let i = 0; i <= 500; i++) {
+        if (i % divisor === 0) {
             console.log(i);
-          sum += i
         }
     }
-    console.log("Sum: " + sum)
 }
 
 displayNumbersDivisible();
@@ -48,20 +45,18 @@ const shoppingList = ["banana", "orange", "apple"];
 let total = 0;
 
 function myBill() {
+    let total = 0;
+
     for (let item of shoppingList) {
-        if (stock[item] > 0) {
+        if (item in stock && stock[item] > 0) {
             total += prices[item];
-            stock[item]--;
-        }
-        else {
-          console.log(`Sorry, ${item} is out of stock.`)
         }
     }
-    console.log (total);
-    console.log(stock);
+
+    return total;
 }
 
-myBill();
+console.log(myBill());
 
 // Exercise 3: What’s in my wallet?
 function changeEnough(itemPrice, amountOfChange) {
@@ -83,7 +78,7 @@ function changeEnough(itemPrice, amountOfChange) {
 // changeEnough(14.11, [2,100,0,0]) => returns false
 // changeEnough(0.75, [0,0,20,5]) => returns true
 
-// Exercise 4: Vacations Costs
+// Exercise 4: Vacation Costs
 function hotelCost(nights) {
     return Math.round(nights) * 140; // Standard nightly fee
 }
@@ -103,7 +98,7 @@ function rentalCarCost(car) {
 function totalVacationCost() {
     // Hotel nights
     let nights = 0;
-    while (nights < 1) {
+    while (isNaN(nights) || nights < 1) {
         nights = Number(prompt("How many nights would you like to stay in our hotel? "));
     }
 

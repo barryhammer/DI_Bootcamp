@@ -3,29 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo List</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome for the delete button -->
+    <title>Todo List</title>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>My Todo List</h1>
 
-    <div id="myDIV" class="header">
-        <h2>My To Do List</h2>
+    <form id="taskForm">
+        <input type="text" id="taskInput"
+               placeholder="Enter a task">
+        <button type="submit" class="addBtn">Submit</button>
+    </form>
 
-        <form id="taskForm">
-            <input type="text" id="myInput" placeholder="Title...">
-            <button type="submit" class="addBtn">Add</button>
-        </form>
-
-        <p id="errorMessage"></p>
-    </div>
-
-    <!-- Container for dynamically created tasks -->
     <div class="listTasks"></div>
 
     <script src="script.js"></script>
