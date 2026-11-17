@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Film Page</title>
+</head>
+<body>
+    <h1>Welcome to the Film Page!</h1>
+    <h2>Find some of your favorite films here by genre.</h2>
+    <br>
+    <h3>Examples of some genres to search by:</h3>
+    <ul>
+        <li>Action</li>
+        <li>Comedy</li>
+        <li>Drama</li>
+        <li>History</li>
+        <li>Thriller</li>
+    </ul>
+    <br>
+    <form class="film-search" id="filmSearchForm">
+        <input type="text" id="genreInput" placeholder="Enter a genre (e.g. Comedy)" required />
+        <button type="submit">Search</button>
+    </form>
+
+    <br>
+    <br>
+    <h3 id="resultsHeading">Movie Recommendations</h3>
+    <div id="movieResults"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
