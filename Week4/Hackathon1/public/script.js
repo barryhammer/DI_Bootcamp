@@ -1,17 +1,30 @@
 // Uploading TMDB ID for listed genres.
 const genres = [
     { id: 28, name: "Action" },
+    { id: 12, name: "Adventure" },
+    { id: 16, name: "Animation" },
     { id: 35, name: "Comedy" },
+    { id: 80, name: "Crime" },
+    { id: 99, name: "Documentary" },
     { id: 18, name: "Drama" },
+    { id: 10751, name: "Family" },
+    { id: 14, name: "Fantasy" },
+    { id: 36, name: "History" },
     { id: 27, name: "Horror" },
+    { id: 10402, name: "Music" },
+    { id: 9648, name: "Mystery" },
+    { id: 10749, name: "Romance" },
     { id: 878, name: "Science Fiction" },
+    { id: 10770, name: "TV Movie" },
     { id: 53, name: "Thriller" },
-    { id: 36, name: "History" }
+    { id: 10752, name: "War" },
+    { id: 37, name: "Western" }
 ];
 
 const form = document.getElementById("filmSearchForm");
 const genreInput = document.getElementById("genreInput");
-const output = document.getElementById("jsonOutput");
+// const output = document.getElementById("jsonOutput");
+const output = document.getElementById("movieResults");
 
 /*
 form.addEventListener("submit", function(event) {
@@ -44,6 +57,57 @@ form.addEventListener("submit", function(event) {
 */
 
 
+function displayMovies(movies) {
+    // Clear any previous search results
+    output.innerHTML = "";
+
+    movies.forEach(movie => {
+        // Create a card container
+        const card = document.createElement("div");
+        card.classList.add("movie-card");
+
+        // Create a poster image
+        const poster = document.createElement("img");
+
+        if (movie.poster_path) {
+            poster.src =
+                `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
+        } else {
+            poster.alt = "No poster available";
+        }
+
+        poster.alt = `Poster for ${movie.title}`;
+        poster.classList.add("movie-poster");
+
+        // Create the movie title
+        const title = document.createElement("h3");
+        title.textContent = movie.title;
+
+        // Create the release year
+        const year = document.createElement("p");
+        year.textContent = movie.release_date
+            ? `Release year: ${movie.release_date.slice(0, 4)}`
+            : "Release year: Unknown";
+
+        // Create the description
+        const description = document.createElement("p");
+        description.textContent =
+            movie.overview || "No description available.";
+
+        // Add the elements to the card
+        if (movie.poster_path) {
+            card.appendChild(poster);
+        }
+
+        card.appendChild(title);
+        card.appendChild(year);
+        card.appendChild(description);
+
+        // Add the completed card to the page
+        output.appendChild(card);
+    });
+}
+
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
 
@@ -59,7 +123,7 @@ form.addEventListener("submit", async function(event) {
     }
 
     try {
-        output.textContent = "Searching for movies...";
+        output.textContent = `Searching for ${selectedGenre.name} movies...`;
 
         const response = await fetch(
             `/api/movies/${selectedGenre.id}`
@@ -94,11 +158,16 @@ form.addEventListener("submit", async function(event) {
         // Extract the title of each movie from every movie object and creates a new array 
         // containing only the movie titles.
         // const movieTitles = movies.map(movie => movie.title);
-        const movieTitles = selectedMovies.map(movie => movie.title);
+        
+        // const movieTitles = selectedMovies.map(movie => movie.title);
 
         // Display the titles on separate lines
         // output.textContent = movieTitles.join("\n");
-        output.textContent = movieTitles.join("\n");
+        
+        // output.textContent = movieTitles.join("\n");
+        document.getElementById("resultsHeading").textContent =
+            `Five Random ${selectedGenre.name} Movies`;
+        displayMovies(selectedMovies);
 
     } catch (error) {
         console.error("Error fetching movies:", error);

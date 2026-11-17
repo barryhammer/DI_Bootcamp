@@ -28,6 +28,12 @@ app.get("/api/movies/:genreId", async (req, res) => {
 
         url.searchParams.set("with_genres", genreId);
         url.searchParams.set("language", "en-US");
+        url.searchParams.set("sort_by", "popularity.desc");
+
+        // Select a random page between 1 and 20
+        const randomPage = Math.floor(Math.random() * 20) + 1;
+
+        url.searchParams.set("page", randomPage);
 
         const response = await fetch(url, {
             headers: {

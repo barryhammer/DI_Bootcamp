@@ -1,0 +1,4 @@
+{
+    "type": "module",
+    "_comment": "The `type: module` setting tells Node.js to interpret .js files as ES6 modules."
+}
