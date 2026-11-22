@@ -9,7 +9,7 @@ const path = require("path");
 // Allow Express to serve HTML, CSS, and JavaScript files
 app.use(express.static(path.join(__dirname, "public")));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2001;
 const TMDB_TOKEN = process.env.TMDB_API_TOKEN;
 
 // Test that our Express server works
